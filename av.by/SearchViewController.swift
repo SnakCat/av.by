@@ -7,12 +7,12 @@ final class SearchViewController: UIViewController {
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         setupConstraints()
-       
+        
     }
     // MARK: - helpers methods
     private func setupConstraints() {
