@@ -15,6 +15,7 @@
 		FFA1AFCE2B1F850500D83B02 /* MessegeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFCD2B1F850500D83B02 /* MessegeViewController.swift */; };
 		FFA1AFD02B1F855D00D83B02 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFCF2B1F855D00D83B02 /* OtherViewController.swift */; };
 		FFA1AFD22B1F876900D83B02 /* AdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFD12B1F876900D83B02 /* AdsViewController.swift */; };
+		FFA1AFD62B20D0D500D83B02 /* SearchVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFD52B20D0D500D83B02 /* SearchVCTableViewCell.swift */; };
 		FFBD3A142B1E62DA009FFAA7 /* FavoritViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD3A132B1E62DA009FFAA7 /* FavoritViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		FFA1AFCD2B1F850500D83B02 /* MessegeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeViewController.swift; sourceTree = "<group>"; };
 		FFA1AFCF2B1F855D00D83B02 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		FFA1AFD12B1F876900D83B02 /* AdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsViewController.swift; sourceTree = "<group>"; };
+		FFA1AFD52B20D0D500D83B02 /* SearchVCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVCTableViewCell.swift; sourceTree = "<group>"; };
 		FFBD3A132B1E62DA009FFAA7 /* FavoritViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 				FF275D3F2B1A72FF00B6FE9C /* Assets.xcassets */,
 				FF275D412B1A72FF00B6FE9C /* LaunchScreen.storyboard */,
 				FF275D442B1A72FF00B6FE9C /* Info.plist */,
+				FFA1AFD52B20D0D500D83B02 /* SearchVCTableViewCell.swift */,
 			);
 			path = av.by;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFA1AFD62B20D0D500D83B02 /* SearchVCTableViewCell.swift in Sources */,
 				FF275D3B2B1A72FD00B6FE9C /* SearchViewController.swift in Sources */,
 				FFA1AFD02B1F855D00D83B02 /* OtherViewController.swift in Sources */,
 				FFA1AFD22B1F876900D83B02 /* AdsViewController.swift in Sources */,
