@@ -11,6 +11,7 @@ final class SearchViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(SearchVCTableViewCell.self, forCellReuseIdentifier: "SearchVCTableViewCell")
         setupConstraints()
         
     }
@@ -30,11 +31,18 @@ final class SearchViewController: UIViewController {
     // MARK: - extension
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchVCTableViewCell", for: indexPath) as? SearchVCTableViewCell {
+            
+            return cell
+        }
+        return UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        550
     }
     
     

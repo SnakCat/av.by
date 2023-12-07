@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         
         let mainViewController = UINavigationController(rootViewController: MainViewController())
-        //let searchViewController = UINavigationController(rootViewController: SearchViewController())
         let favoriteViewController =  UINavigationController(rootViewController: FavoritViewController())
         let adsViewController = UINavigationController(rootViewController: AdsViewController())
         let messegeViewController = UINavigationController(rootViewController: MessegeViewController())
@@ -27,7 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         otherViewController.tabBarItem = UITabBarItem(title: "Прочее", image: UIImage(systemName: "text.justify"), tag: 4)
 
         window.rootViewController = tabBarController
-        //window.rootViewController = mainViewController
     
         self.window = window
         window.makeKeyAndVisible()
