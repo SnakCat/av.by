@@ -1,7 +1,7 @@
 import Foundation
 
-enum TransmissionCar {
-    case mechanical
-    case automatic
-    case robotic
+enum TransmissionCar: String {
+    case mechanical = "механика"
+    case automatic = "автомат"
+    case robotic = "робот"
 }

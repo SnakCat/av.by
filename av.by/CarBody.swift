@@ -1,15 +1,14 @@
 import Foundation
 
-enum CarBody {
-    case hatchback
-    case sedan
-    case wagon
-    case pickup
-    case van
-    case minivan
-    case cabriolet
-    case offRoad
-    case limousine
-    case coupe
-    case crossover
+enum CarBody: String {
+    case hatchback = "хатчбэк"
+    case sedan = "седан"
+    case wagon = "универсал"
+    case pickup = "пикап"
+    case minivan = "мультивен"
+    case cabriolet = "кабриалет"
+    case offRoad = "внедорожник"
+    case limousine = "лимузин"
+    case coupe = "супе"
+    case crossover = "кроссовер"
 }

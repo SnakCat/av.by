@@ -11,8 +11,9 @@ final class MainViewController: UIViewController {
         view.addSubview(startButton)
         setupConstraints()
         setupUI()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
     }
-    
     // MARK: - helpers methods
     // constraints
     private func setupConstraints() {
@@ -35,7 +36,6 @@ final class MainViewController: UIViewController {
     @objc func tappedStart() {
         let searchViewController = SearchViewController()
         navigationController?.pushViewController(searchViewController, animated: true)
-
     }
-    
 }
+

@@ -26,6 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         otherViewController.tabBarItem = UITabBarItem(title: "Прочее", image: UIImage(systemName: "text.justify"), tag: 4)
 
         window.rootViewController = tabBarController
+        
+        UITabBar.appearance().tintColor = UIColor.selectItemTabBat
+        UITabBar.appearance().unselectedItemTintColor = UIColor.itemTabBar
+        tabBarController.tabBar.backgroundColor = .tabBarCV
     
         self.window = window
         window.makeKeyAndVisible()
@@ -61,4 +65,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
+
 

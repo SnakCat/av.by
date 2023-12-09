@@ -1,23 +1,38 @@
 import Foundation
+import UIKit.UIImage
 
+    // MARK: - struct for car info
 struct InfoCar {
     let name: String
     var price: Double
-    let images: [String]
     var dollar: Double {
         return Double(price / 3)
     }
+    let photos: [UIImage]
     let yaer: Int
     let transmission: TransmissionCar
-    let engineСapacity: Double
+    let sizeEngine: Double
     let typeEngine: TypeEngine
     let carBody: CarBody
-    let driveUnit: DriveUnit
+    let odometer: Double
+    let powerReserve: Double
+    let wheelDrive: WheelDrive
+    let color: String
+    let registration: Regisrtation
+    let power: Double
+    let fuelFlow: Double
+    
     var vin: Bool
     var top: Bool
-    let city: String
-    var lizing: Double {
-        return Double(Double(price / 3) * 13)
-    }
     
+    let city: String
+    let date: String
+    let vinNumber: Int
+    let description: String
+    let complectation: String
+    let change: Change
+    var lizing: Double {
+        return price / 3 / 48
+    }
+    let seller: String
 }

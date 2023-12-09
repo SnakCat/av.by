@@ -1,8 +1,9 @@
 import Foundation
 
-enum TypeEngine {
-    case electronic
-    case disel
-    case gasoline
-    case gibrit
+enum TypeEngine: String {
+    case electronic = "электро"
+    case disel = "дизель"
+    case gasoline = "бензин"
+    case gibrit = "гибрид"
 }
+
