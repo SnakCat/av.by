@@ -4,9 +4,9 @@ import UIKit.UIImage
     // MARK: - struct for car info
 struct InfoCar {
     let name: String
-    var price: Double
-    var dollar: Double {
-        return Double(price / 3)
+    var price: Int
+    var dollar: Int {
+        return Int(price / 3)
     }
     let photos: [UIImage]
     let yaer: Int
@@ -31,8 +31,8 @@ struct InfoCar {
     let description: String
     let complectation: String
     let change: Change
-    var lizing: Double {
-        return price / 3 / 48
+    var lizing: Int {
+        return Int(price / 3 / 48)
     }
     let seller: String
 }

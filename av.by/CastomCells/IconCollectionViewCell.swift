@@ -18,6 +18,7 @@ final class IconCollectionViewCell: UICollectionViewCell {
         
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
     }
     
     required init?(coder: NSCoder) {

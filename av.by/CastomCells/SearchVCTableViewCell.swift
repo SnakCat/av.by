@@ -43,7 +43,7 @@ final class SearchVCTableViewCell: UITableViewCell {
     
     func configure(wiht car: InfoCar) {
         nameCarLabel.text = car.name
-        priceLabel.text = String(car.price)
+        priceLabel.text = "\(car.price) р."
         dollarLabel.text = "~ \(car.dollar) $"
         imagesArray = car.photos
         infoCarLabel.text = "\(car.yaer)г., \(car.transmission.rawValue), \(car.sizeEngine), \(car.typeEngine.rawValue), \(car.carBody.rawValue), \(car.odometer) км"
@@ -172,7 +172,7 @@ final class SearchVCTableViewCell: UITableViewCell {
     private func setupUI() {
         contentView.layer.cornerRadius = 10
 
-        imagesCollectionView.backgroundColor = .background
+        imagesCollectionView.backgroundColor = .clear
         
         favoriteButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         favoriteButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 20, weight: .bold), forImageIn: .normal)
