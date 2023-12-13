@@ -1,5 +1,10 @@
 import UIKit
 
+protocol searchVCTableViewCellDelegate: AnyObject {
+    func favoriteButtonTapped()
+    func lizingButtonTapped()
+}
+
 final class SearchVCTableViewCell: UITableViewCell {
     // MARK: - provate propertis
     private let contenerView = UIView()
@@ -16,11 +21,13 @@ final class SearchVCTableViewCell: UITableViewCell {
     private let lineView = UIView()
     private let dollarLabel = UILabel()
     private let cityNameLabel = UILabel()
-    private let vinTopView = UIView()
+    private let vinTopStackView = UIStackView()
     private let topImageView = UIImageView()
     private let vinImageView = UIImageView()
     private var imagesArray = [UIImage]()
     private let dateLabel = UILabel()
+    
+    weak var delegate: searchVCTableViewCellDelegate?
     
     // MARK: - life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -28,6 +35,14 @@ final class SearchVCTableViewCell: UITableViewCell {
         addSubCell()
         setupConstraints()
         setupUI()
+        setupCollectionView()
+       
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    private func setupCollectionView() {
         imagesCollectionView.delegate = self
         imagesCollectionView.dataSource = self
         imagesCollectionView.collectionViewLayout = layout
@@ -35,10 +50,6 @@ final class SearchVCTableViewCell: UITableViewCell {
         layout.itemSize = CGSize(width: 350, height: 200)
         imagesCollectionView.register(IconCollectionViewCell.self, forCellWithReuseIdentifier: "IconCollectionViewCell")
         
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func configure(wiht car: InfoCar) {
@@ -52,15 +63,26 @@ final class SearchVCTableViewCell: UITableViewCell {
         cityNameLabel.text = car.city
         dateLabel.text = car.date
         lizingPriceLabel.text = "от \(car.lizing) USD/месяц"
+        if car.top == true {
+            topImageView.isHidden = false
+        }
+        if car.vin == true {
+            vinImageView.isHidden = false
+        }
+        if car.top == false && car.vin == false {
+            vinTopStackView.isHidden = false
+            offStickersStackView()
+        } else {
+            onStickersStackView()
+        }
         imagesCollectionView.reloadData()
-        
     }
+    
     // MARK: - helpers methods
     private func addSubCell() {
         contentView.addSubview(contenerView)
-        contenerView.addSubviews(favoriteButton, nameCarLabel, priceLabel, imagesCollectionView, infoCarLabel, lizingNameLabel, lizingPriceLabel, lizingButton, lineView, dollarLabel, cityNameLabel, vinTopView, dateLabel)
-        vinTopView.addSubview(topImageView)
-        vinTopView.addSubview(vinImageView)
+        contenerView.addSubviews(favoriteButton, nameCarLabel, priceLabel, imagesCollectionView, infoCarLabel, lizingNameLabel, lizingPriceLabel, lizingButton, lineView, dollarLabel, cityNameLabel, dateLabel, vinTopStackView)
+        vinTopStackView.addArrangedSubviews(vinImageView, topImageView)
     }
     // constreints
     private func setupConstraints() {
@@ -86,7 +108,6 @@ final class SearchVCTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             priceLabel.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 8),
             priceLabel.topAnchor.constraint(equalTo: nameCarLabel.bottomAnchor, constant: 10),
-            priceLabel.widthAnchor.constraint(equalTo: contenerView.widthAnchor, multiplier: 0.3)
         ])
         imagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -104,14 +125,14 @@ final class SearchVCTableViewCell: UITableViewCell {
         lizingNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             lizingNameLabel.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 8),
-            lizingNameLabel.bottomAnchor.constraint(equalTo: contenerView.bottomAnchor, constant: -10),
+            lizingNameLabel.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 10),
             lizingNameLabel.widthAnchor.constraint(equalTo: contenerView.widthAnchor, multiplier: 0.4),
             lizingNameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
         lizingPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             lizingPriceLabel.trailingAnchor.constraint(equalTo: contenerView.trailingAnchor, constant: -8),
-            lizingPriceLabel.bottomAnchor.constraint(equalTo: contenerView.bottomAnchor, constant: -10),
+            lizingPriceLabel.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 10),
             lizingPriceLabel.widthAnchor.constraint(equalTo: contenerView.widthAnchor, multiplier: 0.5),
             lizingPriceLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
@@ -119,14 +140,15 @@ final class SearchVCTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             lizingButton.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 8),
             lizingButton.trailingAnchor.constraint(equalTo: contenerView.trailingAnchor, constant: -8),
-            lizingButton.bottomAnchor.constraint(equalTo: contenerView.bottomAnchor, constant: -10),
-            lizingButton.heightAnchor.constraint(equalToConstant: 40)
+            lizingButton.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 15),
+            lizingButton.heightAnchor.constraint(equalToConstant: 40),
+            lizingButton.bottomAnchor.constraint(equalTo: contenerView.bottomAnchor)
         ])
         lineView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             lineView.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 8),
             lineView.trailingAnchor.constraint(equalTo: contenerView.trailingAnchor),
-            lineView.bottomAnchor.constraint(equalTo: lizingButton.topAnchor, constant: -8),
+            lineView.topAnchor.constraint(equalTo: cityNameLabel.bottomAnchor, constant: 10),
             lineView.heightAnchor.constraint(equalToConstant: 1)
         ])
         dollarLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -135,48 +157,58 @@ final class SearchVCTableViewCell: UITableViewCell {
             dollarLabel.bottomAnchor.constraint(equalTo: imagesCollectionView.topAnchor, constant: -13),
             dollarLabel.widthAnchor.constraint(equalTo: contenerView.widthAnchor, multiplier: 0.3)
         ])
+      
+        vinTopStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            vinTopStackView.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 8),
+            vinTopStackView.topAnchor.constraint(equalTo: infoCarLabel.bottomAnchor, constant: 8),
+            vinTopStackView.heightAnchor.constraint(equalToConstant: 20),
+        ])
+        topImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        topImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        topImageView.contentMode = .scaleAspectFit
+        
+        vinImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        vinImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        vinImageView.contentMode = .scaleAspectFit
+    }
+    
+    private func offStickersStackView() {
         cityNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cityNameLabel.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 8),
-            cityNameLabel.bottomAnchor.constraint(equalTo: lineView.topAnchor, constant: -12),
-        ])
-        vinTopView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            vinTopView.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 8),
-            vinTopView.topAnchor.constraint(equalTo: infoCarLabel.bottomAnchor, constant: 8),
-            vinTopView.heightAnchor.constraint(equalToConstant: 20),
-            vinTopView.widthAnchor.constraint(equalToConstant: 97)
-        ])
-        topImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            topImageView.leadingAnchor.constraint(equalTo: vinTopView.leadingAnchor),
-            topImageView.topAnchor.constraint(equalTo: vinTopView.topAnchor),
-            topImageView.bottomAnchor.constraint(equalTo: vinTopView.bottomAnchor),
-            topImageView.widthAnchor.constraint(equalToConstant: 47)
-        ])
-        vinImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            vinImageView.trailingAnchor.constraint(equalTo: vinTopView.trailingAnchor),
-            vinImageView.topAnchor.constraint(equalTo: vinTopView.topAnchor),
-            vinImageView.bottomAnchor.constraint(equalTo: vinTopView.bottomAnchor),
-            vinImageView.leadingAnchor.constraint(equalTo: topImageView.trailingAnchor, constant: 3)
+            cityNameLabel.topAnchor.constraint(equalTo: infoCarLabel.bottomAnchor, constant: 10)
         ])
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            dateLabel.bottomAnchor.constraint(equalTo: lineView.topAnchor, constant: -12),
-            dateLabel.leadingAnchor.constraint(equalTo: cityNameLabel.trailingAnchor, constant: 10)
+            dateLabel.leadingAnchor.constraint(equalTo: cityNameLabel.trailingAnchor, constant: 10),
+            dateLabel.topAnchor.constraint(equalTo: infoCarLabel.bottomAnchor, constant: 10)
+            
         ])
-        
+    }
+    private func onStickersStackView() {
+        cityNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cityNameLabel.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 8),
+            cityNameLabel.topAnchor.constraint(equalTo: vinTopStackView.bottomAnchor, constant: 10)
+        ])
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dateLabel.leadingAnchor.constraint(equalTo: cityNameLabel.trailingAnchor, constant: 10),
+            dateLabel.topAnchor.constraint(equalTo: vinTopStackView.bottomAnchor, constant: 10)
+        ])
     }
     // UI
     private func setupUI() {
         contentView.layer.cornerRadius = 10
 
         imagesCollectionView.backgroundColor = .clear
+        imagesCollectionView.layer.cornerRadius = 10
         
         favoriteButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         favoriteButton.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 20, weight: .bold), forImageIn: .normal)
         favoriteButton.tintColor = .itemTabBar
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
         
         contenerView.backgroundColor = .tabBarCV
         contenerView.layer.cornerRadius = 10
@@ -194,6 +226,7 @@ final class SearchVCTableViewCell: UITableViewCell {
         lizingPriceLabel.textAlignment = .right
         
         lizingButton.backgroundColor = .clear 
+        lizingButton.addTarget(self, action: #selector(lizingButtonTapped), for: .touchUpInside)
         
         lineView.backgroundColor = .lightGray
         
@@ -202,19 +235,33 @@ final class SearchVCTableViewCell: UITableViewCell {
         
         cityNameLabel.textColor = .lightGray
         
+        vinTopStackView.axis = .horizontal
+        vinTopStackView.distribution = .fillEqually
+        vinTopStackView.alignment = .leading
+        vinTopStackView.spacing = 5
+        
         topImageView.image = UIImage(named: "top")
+        topImageView.layer.masksToBounds = true
+        topImageView.layer.cornerRadius = 5
+        topImageView.isHidden = true
+
         vinImageView.image = UIImage(named: "vin")
+        vinImageView.layer.masksToBounds = true
+        vinImageView.layer.cornerRadius = 5
+        vinImageView.isHidden = true
         
         dateLabel.textColor = .lightGray
+    }
+    
+    @objc private func favoriteButtonTapped() {
+        delegate?.favoriteButtonTapped()
+    }
+    @objc private func lizingButtonTapped() {
+        delegate?.lizingButtonTapped()
     }
         
 }
     // MARK: - extension
-extension UIView {
-    func addSubviews(_ view: UIView...) {
-        view.forEach(addSubview)
-    }
-}
     // collection view cell
 extension SearchVCTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

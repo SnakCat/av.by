@@ -1,7 +1,7 @@
 import UIKit
 
 final class IconCollectionViewCell: UICollectionViewCell {
-    let imageView = UIImageView()
+    private let imageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,7 +18,6 @@ final class IconCollectionViewCell: UICollectionViewCell {
         
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
     }
     
     required init?(coder: NSCoder) {

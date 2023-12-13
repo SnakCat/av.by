@@ -33,7 +33,7 @@ final class MainViewController: UIViewController {
         startButton.addTarget(self, action: #selector(tappedStart), for: .touchUpInside)
     }
     // tapp Button
-    @objc func tappedStart() {
+    @objc private func tappedStart() {
         let searchViewController = SearchViewController()
         navigationController?.pushViewController(searchViewController, animated: true)
     }

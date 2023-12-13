@@ -15,6 +15,7 @@
 		FF275D3B2B1A72FD00B6FE9C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF275D3A2B1A72FD00B6FE9C /* SearchViewController.swift */; };
 		FF275D402B1A72FF00B6FE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF275D3F2B1A72FF00B6FE9C /* Assets.xcassets */; };
 		FF275D432B1A72FF00B6FE9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF275D412B1A72FF00B6FE9C /* LaunchScreen.storyboard */; };
+		FF3C954A2B28D5E70008F773 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C95492B28D5E70008F773 /* UIViewExtension.swift */; };
 		FFA1AFCE2B1F850500D83B02 /* MessegeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFCD2B1F850500D83B02 /* MessegeViewController.swift */; };
 		FFA1AFD02B1F855D00D83B02 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFCF2B1F855D00D83B02 /* OtherViewController.swift */; };
 		FFA1AFD22B1F876900D83B02 /* AdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFD12B1F876900D83B02 /* AdsViewController.swift */; };
@@ -39,6 +40,7 @@
 		FF275D3F2B1A72FF00B6FE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF275D422B1A72FF00B6FE9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF275D442B1A72FF00B6FE9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF3C95492B28D5E70008F773 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		FFA1AFCD2B1F850500D83B02 /* MessegeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeViewController.swift; sourceTree = "<group>"; };
 		FFA1AFCF2B1F855D00D83B02 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		FFA1AFD12B1F876900D83B02 /* AdsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				FF275D442B1A72FF00B6FE9C /* Info.plist */,
 				FFA1AFE62B20F46F00D83B02 /* MainViewController.swift */,
 				FFA1AFCC2B1F849D00D83B02 /* TabBarItems */,
+				FF3C95492B28D5E70008F773 /* UIViewExtension.swift */,
 			);
 			path = av.by;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				FFA1AFE42B20ECB000D83B02 /* CarBody.swift in Sources */,
 				FFA1AFD02B1F855D00D83B02 /* OtherViewController.swift in Sources */,
 				FFA1AFD22B1F876900D83B02 /* AdsViewController.swift in Sources */,
+				FF3C954A2B28D5E70008F773 /* UIViewExtension.swift in Sources */,
 				FFA1AFDC2B20E63D00D83B02 /* TransmissionCar.swift in Sources */,
 				FFA1AFE72B20F46F00D83B02 /* MainViewController.swift in Sources */,
 				FF275D372B1A72FD00B6FE9C /* AppDelegate.swift in Sources */,

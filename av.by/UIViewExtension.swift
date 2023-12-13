@@ -1,8 +1,13 @@
-//
-//  UIViewExtension.swift
-//  av.by
-//
-//  Created by Дмитрий Трушин on 12.12.2023.
-//
-
 import Foundation
+import UIKit
+
+extension UIView {
+    func addSubviews(_ view: UIView...) {
+        view.forEach(addSubview)
+    }
+}
+extension UIStackView {
+    func addArrangedSubviews(_ view: UIView...) {
+        view.forEach(addArrangedSubview)
+    }
+}
