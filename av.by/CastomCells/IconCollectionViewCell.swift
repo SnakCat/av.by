@@ -1,6 +1,7 @@
 import UIKit
 
 final class IconCollectionViewCell: UICollectionViewCell {
+    
     private let imageView = UIImageView()
     
     override init(frame: CGRect) {

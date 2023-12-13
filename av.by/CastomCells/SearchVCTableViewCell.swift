@@ -6,7 +6,7 @@ protocol searchVCTableViewCellDelegate: AnyObject {
 }
 
 final class SearchVCTableViewCell: UITableViewCell {
-    // MARK: - provate propertis
+    // MARK: - provate propertys
     private let contenerView = UIView()
     private let favoriteButton = UIButton()
     private let nameCarLabel = UILabel()
@@ -27,6 +27,7 @@ final class SearchVCTableViewCell: UITableViewCell {
     private var imagesArray = [UIImage]()
     private let dateLabel = UILabel()
     
+    // delegate property
     weak var delegate: searchVCTableViewCellDelegate?
     
     // MARK: - life cycle
@@ -36,12 +37,13 @@ final class SearchVCTableViewCell: UITableViewCell {
         setupConstraints()
         setupUI()
         setupCollectionView()
-       
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
     }
+    // MARK: - setup collection view
     private func setupCollectionView() {
         imagesCollectionView.delegate = self
         imagesCollectionView.dataSource = self
@@ -49,9 +51,9 @@ final class SearchVCTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 350, height: 200)
         imagesCollectionView.register(IconCollectionViewCell.self, forCellWithReuseIdentifier: "IconCollectionViewCell")
-        
     }
     
+    // MARK: - config for tableViewCell
     func configure(wiht car: InfoCar) {
         nameCarLabel.text = car.name
         priceLabel.text = "\(car.price) р."
@@ -79,6 +81,7 @@ final class SearchVCTableViewCell: UITableViewCell {
     }
     
     // MARK: - helpers methods
+    // add subviewCell
     private func addSubCell() {
         contentView.addSubview(contenerView)
         contenerView.addSubviews(favoriteButton, nameCarLabel, priceLabel, imagesCollectionView, infoCarLabel, lizingNameLabel, lizingPriceLabel, lizingButton, lineView, dollarLabel, cityNameLabel, dateLabel, vinTopStackView)
@@ -157,7 +160,6 @@ final class SearchVCTableViewCell: UITableViewCell {
             dollarLabel.bottomAnchor.constraint(equalTo: imagesCollectionView.topAnchor, constant: -13),
             dollarLabel.widthAnchor.constraint(equalTo: contenerView.widthAnchor, multiplier: 0.3)
         ])
-      
         vinTopStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             vinTopStackView.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 8),
@@ -172,7 +174,7 @@ final class SearchVCTableViewCell: UITableViewCell {
         vinImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         vinImageView.contentMode = .scaleAspectFit
     }
-    
+    // methods stackView isHidden
     private func offStickersStackView() {
         cityNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -183,7 +185,6 @@ final class SearchVCTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             dateLabel.leadingAnchor.constraint(equalTo: cityNameLabel.trailingAnchor, constant: 10),
             dateLabel.topAnchor.constraint(equalTo: infoCarLabel.bottomAnchor, constant: 10)
-            
         ])
     }
     private func onStickersStackView() {
@@ -252,14 +253,13 @@ final class SearchVCTableViewCell: UITableViewCell {
         
         dateLabel.textColor = .lightGray
     }
-    
+    // implement action buttons
     @objc private func favoriteButtonTapped() {
         delegate?.favoriteButtonTapped()
     }
     @objc private func lizingButtonTapped() {
         delegate?.lizingButtonTapped()
     }
-        
 }
     // MARK: - extension
     // collection view cell

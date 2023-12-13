@@ -1,13 +1,14 @@
 import UIKit
 
 final class SearchViewController: UIViewController {
+    
     // MARK: - private propertis
     private let tableView = UITableView()
     private let buttonView = UIView()
     private let scanButton = UIButton()
     private let parametrsButton = UIButton()
     
-    
+    // MARK: - array cars
     private let cars: [InfoCar] = [
         InfoCar(name: "Audi RS3", price: 2678, photos: [(UIImage(imageLiteralResourceName: "Audi")), (UIImage(imageLiteralResourceName: "Audi1")), (UIImage(imageLiteralResourceName: "Audi2"))], yaer: 2019, transmission: .automatic, sizeEngine: 3.2, typeEngine: .gasoline, carBody: .hatchback, odometer: 23.345, powerReserve: 23456, wheelDrive: .fullWheelDrive, color: "Серый", registration: .isRegistered, power: 1300, fuelFlow: 18, vin: true, top: true, city: "Минстк", date: "14 ноября", vinNumber: 2454679807, description: "", complectation: "", change: .no, seller: "Собственник"),
         
@@ -29,6 +30,7 @@ final class SearchViewController: UIViewController {
         
         InfoCar(name: "Ford Focus 2", price: 123, photos: [(UIImage(imageLiteralResourceName: "image1")), (UIImage(imageLiteralResourceName: "image2")), (UIImage(imageLiteralResourceName: "image3"))], yaer: 2007, transmission: .mechanical, sizeEngine: 1.8, typeEngine: .gasoline, carBody: .hatchback, odometer: 343543, powerReserve: 1432, wheelDrive: .frontWheelDrive, color: "Черный", registration: .isRegistered, power: 125, fuelFlow: 12455, vin: true, top: false, city: "Вологда", date: "7 августа", vinNumber: 2145353, description: "", complectation: "", change: .no, seller: "Собственник")
     ]
+    
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,7 @@ final class SearchViewController: UIViewController {
         setupUI()
         
     }
+    
     // MARK: - helpers methods
     // constraints
     private func setupConstraints() {
@@ -93,11 +96,12 @@ final class SearchViewController: UIViewController {
         parametrsButton.tintColor = .white
         
     }
+    // implement action button
     @objc private func tapOnArrowsButton() {
         print("parametrs")
     }
-    
 }
+
     // MARK: - extension
     // table view cell
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -118,8 +122,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         false
     }
-    
 }
+// implement action buttons delegate
 extension SearchViewController: searchVCTableViewCellDelegate {
     func favoriteButtonTapped() {
         print("добавить в избранные")
@@ -128,8 +132,6 @@ extension SearchViewController: searchVCTableViewCellDelegate {
     func lizingButtonTapped() {
         print("оформить кредит")
     }
-    
-    
 }
   
 

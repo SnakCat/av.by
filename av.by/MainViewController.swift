@@ -1,7 +1,7 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    // MARK: - private propertis
+    // MARK: - private propertys
     private let startButton = UIButton()
     
     // MARK: - life cycle
@@ -12,8 +12,8 @@ final class MainViewController: UIViewController {
         setupConstraints()
         setupUI()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
     }
+    
     // MARK: - helpers methods
     // constraints
     private func setupConstraints() {
@@ -32,7 +32,7 @@ final class MainViewController: UIViewController {
         startButton.backgroundColor = .systemBlue
         startButton.addTarget(self, action: #selector(tappedStart), for: .touchUpInside)
     }
-    // tapp Button
+    // impliment action button
     @objc private func tappedStart() {
         let searchViewController = SearchViewController()
         navigationController?.pushViewController(searchViewController, animated: true)

@@ -6,6 +6,7 @@ extension UIView {
         view.forEach(addSubview)
     }
 }
+
 extension UIStackView {
     func addArrangedSubviews(_ view: UIView...) {
         view.forEach(addArrangedSubview)
