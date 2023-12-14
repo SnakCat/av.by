@@ -119,8 +119,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        false
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let avtoViewController = AvtoViewController()
+        tabBarController?.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(avtoViewController, animated: true)
     }
 }
 // implement action buttons delegate

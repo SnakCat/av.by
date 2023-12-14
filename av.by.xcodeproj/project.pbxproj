@@ -27,6 +27,7 @@
 		FFA1AFE42B20ECB000D83B02 /* CarBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFE32B20ECB000D83B02 /* CarBody.swift */; };
 		FFA1AFE72B20F46F00D83B02 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFE62B20F46F00D83B02 /* MainViewController.swift */; };
 		FFBD3A142B1E62DA009FFAA7 /* FavoritViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD3A132B1E62DA009FFAA7 /* FavoritViewController.swift */; };
+		FFDC5F8B2B2B864A00AAD0B1 /* AvtoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC5F8A2B2B864A00AAD0B1 /* AvtoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FFA1AFE32B20ECB000D83B02 /* CarBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarBody.swift; sourceTree = "<group>"; };
 		FFA1AFE62B20F46F00D83B02 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FFBD3A132B1E62DA009FFAA7 /* FavoritViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritViewController.swift; sourceTree = "<group>"; };
+		FFDC5F8A2B2B864A00AAD0B1 /* AvtoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvtoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				FFA1AFE62B20F46F00D83B02 /* MainViewController.swift */,
 				FFA1AFCC2B1F849D00D83B02 /* TabBarItems */,
 				FF3C95492B28D5E70008F773 /* UIViewExtension.swift */,
+				FFDC5F8A2B2B864A00AAD0B1 /* AvtoViewController.swift */,
 			);
 			path = av.by;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				FFA1AFD62B20D0D500D83B02 /* SearchVCTableViewCell.swift in Sources */,
 				FFA1AFE22B20EC0A00D83B02 /* WheelDrive.swift in Sources */,
 				FF275D3B2B1A72FD00B6FE9C /* SearchViewController.swift in Sources */,
+				FFDC5F8B2B2B864A00AAD0B1 /* AvtoViewController.swift in Sources */,
 				FFA1AFE42B20ECB000D83B02 /* CarBody.swift in Sources */,
 				FFA1AFD02B1F855D00D83B02 /* OtherViewController.swift in Sources */,
 				FFA1AFD22B1F876900D83B02 /* AdsViewController.swift in Sources */,
