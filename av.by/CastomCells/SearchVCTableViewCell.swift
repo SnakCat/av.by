@@ -1,5 +1,5 @@
 import UIKit
-
+// MARK: - protocol
 protocol searchVCTableViewCellDelegate: AnyObject {
     func favoriteButtonTapped()
     func lizingButtonTapped()
