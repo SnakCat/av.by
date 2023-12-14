@@ -10,7 +10,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: scene)
-        window.rootViewController = ViewController()
+        
+        let mainViewController = UINavigationController(rootViewController: MainViewController())
+        let favoriteViewController =  UINavigationController(rootViewController: FavoritViewController())
+        let adsViewController = UINavigationController(rootViewController: AdsViewController())
+        let messegeViewController = UINavigationController(rootViewController: MessegeViewController())
+        let otherViewController = UINavigationController(rootViewController: OtherViewController())
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [mainViewController, favoriteViewController, adsViewController, messegeViewController, otherViewController]
+        mainViewController.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(systemName: "magnifyingglass"), tag: 0)
+        favoriteViewController.tabBarItem = UITabBarItem(title: "Избранное", image: UIImage(systemName: "bookmark.fill"), tag: 1)
+        adsViewController.tabBarItem = UITabBarItem(title: "Объявления", image: UIImage(systemName: "note.text.badge.plus"), tag: 2)
+        messegeViewController.tabBarItem = UITabBarItem(title: "Диалоги", image: UIImage(systemName: "ellipsis.bubble"), tag: 3)
+        otherViewController.tabBarItem = UITabBarItem(title: "Прочее", image: UIImage(systemName: "text.justify"), tag: 4)
+
+        window.rootViewController = tabBarController
+        
+        UITabBar.appearance().tintColor = UIColor.selectItemTabBat
+        UITabBar.appearance().unselectedItemTintColor = UIColor.itemTabBar
+        tabBarController.tabBar.backgroundColor = .tabBarCV
+    
         self.window = window
         window.makeKeyAndVisible()
     }
@@ -45,4 +65,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
+
 
