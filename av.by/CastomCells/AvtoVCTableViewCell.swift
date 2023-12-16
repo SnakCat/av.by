@@ -8,6 +8,7 @@ final class AvtoVCTableViewCell: UITableViewCell {
     private let dollarLabel = UILabel()
     private let imagesCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
     private let layout = UICollectionViewFlowLayout()
+    private let redButton = UIButton()
     
     // MARK: - life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -37,7 +38,7 @@ final class AvtoVCTableViewCell: UITableViewCell {
     // add sub view
     private func addSubCell() {
         contentView.addSubview(contenerView)
-        contenerView.addSubviews(nameCarLabel, priceLabel, dollarLabel, imagesCollectionView)
+        contenerView.addSubviews(nameCarLabel, priceLabel, dollarLabel, imagesCollectionView, redButton)
        
     }
     // constrant
@@ -73,6 +74,13 @@ final class AvtoVCTableViewCell: UITableViewCell {
             dollarLabel.bottomAnchor.constraint(equalTo: imagesCollectionView.topAnchor, constant: -13),
             dollarLabel.widthAnchor.constraint(equalTo: contenerView.widthAnchor, multiplier: 0.3)
         ])
+        redButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            redButton.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor),
+            redButton.trailingAnchor.constraint(equalTo: contenerView.trailingAnchor),
+            redButton.bottomAnchor.constraint(equalTo: contenerView.bottomAnchor, constant: -65),
+            redButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
 
     }
     
@@ -81,6 +89,15 @@ final class AvtoVCTableViewCell: UITableViewCell {
         nameCarLabel.text = "CarCar"
         priceLabel.text = "1234"
         dollarLabel.text = "43121"
+        
+        redButton.layer.cornerRadius = 10
+        redButton.backgroundColor = .buttonRed
+        redButton.setTitle("Пожаловаться", for: .normal)
+        redButton.addTarget(self, action: #selector(redButtonTapped), for: .touchUpInside)
+    }
+    // implement action buttons delegate
+    @objc private func redButtonTapped() {
+        print("Пожаловаться")
     }
     
 }

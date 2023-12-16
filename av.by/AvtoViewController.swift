@@ -14,6 +14,7 @@ final class AvtoViewController: UIViewController {
         setupUI()
         avtoTableView.delegate = self
         avtoTableView.dataSource = self
+        avtoTableView.register(AvtoVCTableViewCell.self, forCellReuseIdentifier: "AvtoVCTableViewCell")
 
         
     }
@@ -71,7 +72,23 @@ final class AvtoViewController: UIViewController {
         print("sms")
     }
     @objc private func alertButtonTapped() {
-        print("тут будет алерт")
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Поделиться...", style: .default, handler: { _ in
+            print("Поделиться...")
+        }))
+        alert.addAction(UIAlertAction(title: "Добавить коментарий...", style: .default, handler: { _ in
+            print("Добавить коментарий...")
+        }))
+        alert.addAction(UIAlertAction(title: "В закладки", style: .default, handler: { _ in
+            print("В закладки")
+        }))
+        alert.addAction(UIAlertAction(title: "Пожаловаться...", style: .destructive, handler: { _ in
+            print("Пожаловаться alert")
+        }))
+        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: { _ in
+            print("Отменить")
+        }))
+        present(alert, animated: true)
     }
     
     
@@ -84,7 +101,11 @@ extension AvtoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        if let cell = avtoTableView.dequeueReusableCell(withIdentifier: "AvtoVCTableViewCell", for: indexPath) as? AvtoVCTableViewCell {
+            
+            return cell
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
