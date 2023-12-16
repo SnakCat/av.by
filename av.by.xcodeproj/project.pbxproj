@@ -15,6 +15,8 @@
 		FF275D3B2B1A72FD00B6FE9C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF275D3A2B1A72FD00B6FE9C /* SearchViewController.swift */; };
 		FF275D402B1A72FF00B6FE9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF275D3F2B1A72FF00B6FE9C /* Assets.xcassets */; };
 		FF275D432B1A72FF00B6FE9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF275D412B1A72FF00B6FE9C /* LaunchScreen.storyboard */; };
+		FF36C31F2B2CBFAB006463C4 /* AvtoVCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF36C31E2B2CBFAB006463C4 /* AvtoVCTableViewCell.swift */; };
+		FF36C3212B2CC140006463C4 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF36C3202B2CC140006463C4 /* ImageCollectionViewCell.swift */; };
 		FF3C954A2B28D5E70008F773 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3C95492B28D5E70008F773 /* UIViewExtension.swift */; };
 		FFA1AFCE2B1F850500D83B02 /* MessegeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFCD2B1F850500D83B02 /* MessegeViewController.swift */; };
 		FFA1AFD02B1F855D00D83B02 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1AFCF2B1F855D00D83B02 /* OtherViewController.swift */; };
@@ -41,6 +43,8 @@
 		FF275D3F2B1A72FF00B6FE9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF275D422B1A72FF00B6FE9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF275D442B1A72FF00B6FE9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF36C31E2B2CBFAB006463C4 /* AvtoVCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvtoVCTableViewCell.swift; sourceTree = "<group>"; };
+		FF36C3202B2CC140006463C4 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF3C95492B28D5E70008F773 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		FFA1AFCD2B1F850500D83B02 /* MessegeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeViewController.swift; sourceTree = "<group>"; };
 		FFA1AFCF2B1F855D00D83B02 /* OtherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 			children = (
 				FFA1AFD52B20D0D500D83B02 /* SearchVCTableViewCell.swift */,
 				FF2021A82B2363D800DB7F5B /* IconCollectionViewCell.swift */,
+				FF36C31E2B2CBFAB006463C4 /* AvtoVCTableViewCell.swift */,
+				FF36C3202B2CC140006463C4 /* ImageCollectionViewCell.swift */,
 			);
 			path = CastomCells;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 				FFA1AFD62B20D0D500D83B02 /* SearchVCTableViewCell.swift in Sources */,
 				FFA1AFE22B20EC0A00D83B02 /* WheelDrive.swift in Sources */,
 				FF275D3B2B1A72FD00B6FE9C /* SearchViewController.swift in Sources */,
+				FF36C3212B2CC140006463C4 /* ImageCollectionViewCell.swift in Sources */,
 				FFDC5F8B2B2B864A00AAD0B1 /* AvtoViewController.swift in Sources */,
 				FFA1AFE42B20ECB000D83B02 /* CarBody.swift in Sources */,
 				FFA1AFD02B1F855D00D83B02 /* OtherViewController.swift in Sources */,
@@ -232,6 +239,7 @@
 				FF2021AB2B23A81300DB7F5B /* Change.swift in Sources */,
 				FFA1AFCE2B1F850500D83B02 /* MessegeViewController.swift in Sources */,
 				FFA1AFE02B20EB5E00D83B02 /* TypeEngine.swift in Sources */,
+				FF36C31F2B2CBFAB006463C4 /* AvtoVCTableViewCell.swift in Sources */,
 				FF2021AD2B23A85C00DB7F5B /* Regisrtation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

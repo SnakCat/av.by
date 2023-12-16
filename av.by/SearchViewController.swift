@@ -121,7 +121,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let avtoViewController = AvtoViewController()
-        tabBarController?.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(avtoViewController, animated: true)
     }
 }

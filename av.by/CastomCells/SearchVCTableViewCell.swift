@@ -11,7 +11,6 @@ final class SearchVCTableViewCell: UITableViewCell {
     private let favoriteButton = UIButton()
     private let nameCarLabel = UILabel()
     private let priceLabel = UILabel()
-    private let dallarLabel = UILabel()
     private let imagesCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
     private let layout = UICollectionViewFlowLayout()
     private let infoCarLabel = UILabel()
