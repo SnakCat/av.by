@@ -5,7 +5,7 @@ final class AvtoViewController: UIViewController {
     private let callButton = UIButton()
     private let smsButton = UIButton()
     private let avtoTableView = UITableView()
-    
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
@@ -15,14 +15,15 @@ final class AvtoViewController: UIViewController {
         avtoTableView.delegate = self
         avtoTableView.dataSource = self
         avtoTableView.register(AvtoVCTableViewCell.self, forCellReuseIdentifier: "AvtoVCTableViewCell")
-
-        
+    
     }
+    
     // MARK: - helpers methods
     // add sub view
     private func addSubView() {
         view.addSubviews(avtoTableView, callButton, smsButton)
     }
+    
     // constreint
     private func setupConstraints() {
         avtoTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +48,7 @@ final class AvtoViewController: UIViewController {
             smsButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    
     // UI
     private func setupUI() {
         
@@ -64,6 +66,7 @@ final class AvtoViewController: UIViewController {
         smsButton.tintColor = .white
         smsButton.addTarget(self, action: #selector(smsButtonTapped), for: .touchUpInside)
     }
+    
     // implement action buttons delegate
     @objc private func callButtonTapped() {
         print("Звоню")
@@ -90,9 +93,8 @@ final class AvtoViewController: UIViewController {
         }))
         present(alert, animated: true)
     }
-    
-    
 }
+
     // MARK: - extension
     // table view cell
 extension AvtoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -109,8 +111,6 @@ extension AvtoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        1000
+        1850
     }
-    
-    
 }

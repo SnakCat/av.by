@@ -36,6 +36,7 @@ final class SearchVCTableViewCell: UITableViewCell {
         setupConstraints()
         setupUI()
         setupCollectionView()
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {

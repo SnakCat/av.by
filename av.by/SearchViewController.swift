@@ -43,6 +43,11 @@ final class SearchViewController: UIViewController {
         setupUI()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+
+    }
     
     // MARK: - helpers methods
     // constraints
