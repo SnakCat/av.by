@@ -5,6 +5,9 @@ final class AvtoViewController: UIViewController {
     private let callButton = UIButton()
     private let smsButton = UIButton()
     private let avtoTableView = UITableView()
+    
+    var car: InfoCar?
+
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,13 +107,15 @@ extension AvtoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = avtoTableView.dequeueReusableCell(withIdentifier: "AvtoVCTableViewCell", for: indexPath) as? AvtoVCTableViewCell {
-            
+            guard let car = car else { return cell }
+            cell.configure(wiht: car)
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        1850
+        1300
     }
+    
 }

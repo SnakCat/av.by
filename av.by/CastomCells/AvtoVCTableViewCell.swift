@@ -27,9 +27,11 @@ final class AvtoVCTableViewCell: UITableViewCell {
     private let equipView = UIView()
     private let equipTitleLabel = UILabel()
     private let equipBodyLabel = UILabel()
-    private let trideView = UILabel()
+    private let trideView = UIView()
     private let trideTitleLabel = UILabel()
-    private let tredeBodyLabel = UILabel()
+    private let trideBodyLabel = UILabel()
+    private var imagesArray = [UIImage]()
+
     
     // MARK: - life cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -39,7 +41,7 @@ final class AvtoVCTableViewCell: UITableViewCell {
         setupConstraints()
         setupUI()
         selectionStyle = .none
-        
+    
     }
     
     required init?(coder: NSCoder) {
@@ -58,15 +60,31 @@ final class AvtoVCTableViewCell: UITableViewCell {
     }
     
     // MARK: - helpers methods
+    // configure
+    func configure(wiht car: InfoCar) {
+        nameCarLabel.text = car.name
+        priceLabel.text = "\(car.price) р."
+        dollarLabel.text = "~ \(car.dollar) $"
+        imagesArray = car.photos
+        discriptionLabel.text = "\(car.yaer)г., \(car.transmission.rawValue), \(car.sizeEngine), \(car.typeEngine.rawValue), \(car.carBody.rawValue), \(car.odometer) км"
+        cityLabel.text = car.city
+        discriptionBodyLabel.text = "\(car.yaer)г.,\n \(car.transmission.rawValue),\n \(car.sizeEngine),\n \(car.typeEngine.rawValue),\n \(car.carBody.rawValue),\n \(car.odometer) км"
+        equipBodyLabel.text = "\(car.transmission.rawValue)\n\(car.sizeEngine)\n\(car.typeEngine.rawValue)\n\(car.carBody.rawValue)\n\(car.color)\n\(car.wheelDrive.rawValue)"
+        trideBodyLabel.text = car.change.rawValue
+        imagesCollectionView.reloadData()
+    }
     // add sub view
     private func addSubCell() {
         contentView.addSubview(contenerView)
         contenerView.addSubviews(nameCarLabel, priceLabel, dollarLabel, imagesCollectionView, lizingLabel, buttonsView, redButton, lineTopView, discriptionLabel, lineBottonView, cityLabel, discriptionView, equipView, trideView)
-        buttonsView.addSubviews(shareButton, shareLabel, commentButton, commentLabel, favorButton, favorLabel)
-        discriptionView.addSubviews(discriptionTitleLebel, discriptionBodyLabel)
-        equipView.addSubviews(equipTitleLabel, equipBodyLabel)
-        trideView.addSubviews(trideTitleLabel, tredeBodyLabel)
         
+        buttonsView.addSubviews(shareButton, shareLabel, commentButton, commentLabel, favorButton, favorLabel)
+        
+        discriptionView.addSubviews(discriptionTitleLebel, discriptionBodyLabel)
+        
+        equipView.addSubviews(equipTitleLabel, equipBodyLabel)
+        
+        trideView.addSubviews(trideTitleLabel, trideBodyLabel)
     }
     
     // constrant
@@ -158,11 +176,11 @@ final class AvtoVCTableViewCell: UITableViewCell {
             discriptionLabel.topAnchor.constraint(equalTo: lineTopView.bottomAnchor, constant: 17),
             discriptionLabel.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor, constant: 10),
             discriptionLabel.trailingAnchor.constraint(equalTo: contenerView.trailingAnchor, constant: -30),
-            discriptionLabel.heightAnchor.constraint(equalTo: contenerView.heightAnchor, multiplier: 0.15)
+            discriptionLabel.heightAnchor.constraint(equalToConstant: 60)
         ])
         lineBottonView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            lineBottonView.topAnchor.constraint(equalTo: discriptionLabel.bottomAnchor, constant: -10),
+            lineBottonView.topAnchor.constraint(equalTo: discriptionLabel.bottomAnchor, constant: 10),
             lineBottonView.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor),
             lineBottonView.trailingAnchor.constraint(equalTo: contenerView.trailingAnchor),
             lineBottonView.heightAnchor.constraint(equalToConstant: 1)
@@ -178,7 +196,7 @@ final class AvtoVCTableViewCell: UITableViewCell {
             discriptionView.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 15),
             discriptionView.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor),
             discriptionView.trailingAnchor.constraint(equalTo: contenerView.trailingAnchor),
-            discriptionView.heightAnchor.constraint(equalTo: contenerView.heightAnchor, multiplier: 0.2)
+            discriptionView.heightAnchor.constraint(equalTo: contenerView.heightAnchor, multiplier: 0.15)
         ])
         discriptionTitleLebel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -199,7 +217,7 @@ final class AvtoVCTableViewCell: UITableViewCell {
             equipView.topAnchor.constraint(equalTo: discriptionView.bottomAnchor, constant: 13),
             equipView.leadingAnchor.constraint(equalTo: contenerView.leadingAnchor),
             equipView.trailingAnchor.constraint(equalTo: contenerView.trailingAnchor),
-            equipView.heightAnchor.constraint(equalTo: contenerView.heightAnchor, multiplier: 0.2)
+            equipView.heightAnchor.constraint(equalTo: contenerView.heightAnchor, multiplier: 0.15)
         ])
         equipTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -229,12 +247,12 @@ final class AvtoVCTableViewCell: UITableViewCell {
             trideTitleLabel.trailingAnchor.constraint(equalTo: trideView.trailingAnchor, constant: -10),
             trideTitleLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
-        tredeBodyLabel.translatesAutoresizingMaskIntoConstraints = false
+        trideBodyLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            tredeBodyLabel.topAnchor.constraint(equalTo: trideTitleLabel.bottomAnchor, constant: 10),
-            tredeBodyLabel.leadingAnchor.constraint(equalTo: trideView.leadingAnchor, constant: 10),
-            tredeBodyLabel.trailingAnchor.constraint(equalTo: trideView.trailingAnchor, constant: -10),
-            tredeBodyLabel.bottomAnchor.constraint(equalTo: trideView.bottomAnchor, constant: -10)
+            trideBodyLabel.topAnchor.constraint(equalTo: trideTitleLabel.bottomAnchor, constant: 10),
+            trideBodyLabel.leadingAnchor.constraint(equalTo: trideView.leadingAnchor, constant: 10),
+            trideBodyLabel.trailingAnchor.constraint(equalTo: trideView.trailingAnchor, constant: -10),
+            trideBodyLabel.bottomAnchor.constraint(equalTo: trideView.bottomAnchor, constant: -10)
         ])
         redButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -258,8 +276,8 @@ final class AvtoVCTableViewCell: UITableViewCell {
         lizingLabel.layer.masksToBounds = true
         lizingLabel.layer.cornerRadius = 10
         lizingLabel.backgroundColor = .lizingBackground
-        
-        
+        lizingLabel.text = "Лизинг"
+
         shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         shareButton.tintColor = .lizing
         shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
@@ -290,18 +308,20 @@ final class AvtoVCTableViewCell: UITableViewCell {
         cityLabel.font = .systemFont(ofSize: 15)
         cityLabel.textColor = .systemGray
         
-        
+        discriptionView.backgroundColor = .lizingBackground
         discriptionTitleLebel.text = "Описание"
         discriptionTitleLebel.font = .systemFont(ofSize: 25)
         discriptionBodyLabel.numberOfLines = 0
         
+        equipView.backgroundColor = .lizingBackground
         equipTitleLabel.text = "Комплектация"
         equipTitleLabel.font = .systemFont(ofSize: 25)
         equipBodyLabel.numberOfLines = 0
         
+        trideView.backgroundColor = .lizingBackground
         trideTitleLabel.text = "Обмен"
         trideTitleLabel.font = .systemFont(ofSize: 25)
-        tredeBodyLabel.numberOfLines = 0
+        trideBodyLabel.numberOfLines = 0
     
         redButton.layer.cornerRadius = 10
         redButton.backgroundColor = .buttonRed
@@ -310,7 +330,7 @@ final class AvtoVCTableViewCell: UITableViewCell {
         
     }
     
-    // implement action buttons delegate
+    // implement action buttons
     @objc private func redButtonTapped() {
         print("Пожаловаться")
     }
@@ -330,12 +350,12 @@ final class AvtoVCTableViewCell: UITableViewCell {
     // collection view cell
 extension AvtoVCTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        imagesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let imageCell = imagesCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell {
-            
+            imageCell.setImage(imagesArray[indexPath.row])
             return imageCell
         }
         return UICollectionViewCell()

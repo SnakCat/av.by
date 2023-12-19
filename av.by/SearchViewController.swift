@@ -126,6 +126,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let avtoViewController = AvtoViewController()
+        let car = cars[indexPath.row]
+        avtoViewController.car = car
         self.navigationController?.pushViewController(avtoViewController, animated: true)
     }
 }
