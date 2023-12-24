@@ -1,6 +1,6 @@
 import UIKit
 
-class OtherViewController: UIViewController {
+final class OtherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

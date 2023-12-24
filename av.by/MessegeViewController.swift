@@ -1,6 +1,6 @@
 import UIKit
 
-class MessegeViewController: UIViewController {
+final class MessegeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
